@@ -2,11 +2,13 @@
 
 ## What this is
 
-A truthful context-pressure footer for Hermes Discord replies. The stock footer
-shows the raw window (`Ctx: 315K / 1M`) but nothing compresses at 1M — the agent
-compressor fires at 50 %, a gateway safety net at 85 %, and a hard 400-message
-valve forces compression regardless of tokens. This component measures pressure
-against the **effective** budget and the message valve, and warns near a boundary.
+A truthful context-pressure footer for **Hermes Discord replies**. On Discord there
+is no context/token indicator by default — Hermes' built-in runtime footer
+(`display.runtime_footer`) is off unless enabled — so this component is what *adds*
+the footer. And it computes it against the **effective** budget, unlike the raw
+built-in figure: the agent compressor fires at 50 %, a gateway safety net at 85 %,
+and a hard 400-message valve forces compression regardless of tokens. It warns near
+a boundary.
 
 Two parts:
 - `advisor/` — the pure core (`core.py`), renderer + config (`render.py`), and an
