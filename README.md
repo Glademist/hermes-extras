@@ -7,7 +7,7 @@ repo and have it install/adjust them.
 
 | Component | Problem it solves | Shape |
 |---|---|---|
-| [`context-advisor/`](context-advisor/) | The token/context footer lies: it measures against the raw window while compression actually fires at 50 %. This makes the footer truthful. | Python core + Hermes plugin |
+| [`context-advisor/`](context-advisor/) | Discord replies show **no** context/token indicator by default. This adds one — and measures it truthfully (against the effective budget, not the raw window). | Python core + Hermes plugin |
 | [`tool-output-cap/`](tool-output-cap/) | Tool results dominate a long prompt, so the context grows fast. This caps oversized tool results (head + marker + tail) before they enter context. | Single-file Hermes plugin + tests |
 | [`noemem/`](noemem/) | An agent has no long-term memory. This is a full archival pipeline: session → structured archive → consolidated topic files → retrieval. | Python scripts (+ design doc) |
 
@@ -50,6 +50,11 @@ hermes-extras/
 
 ## Notes
 
+- **Especially useful if you use Discord.** Hermes displays no context/token indicator there by
+  default — its built-in `display.runtime_footer` is off unless you turn it on — so a reply
+  normally carries nothing about how full the context is. `context-advisor` is what surfaces it
+  (and computes it truthfully). `tool-output-cap` likewise slows the growth that the footer warns
+  about, on any platform but most visibly on long Discord threads.
 - Paths are given as `~/hermes-extras/...`. Adjust to wherever you clone.
 - The `noemem/` scripts use `HERMES_NOEMEM_HOME` (default `~/hermes-noemem`) to
   locate their data tree; see `noemem/AGENTS.md`.

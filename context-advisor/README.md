@@ -2,9 +2,14 @@
 
 A truthful context-pressure footer for Hermes Discord replies.
 
-The stock footer reads `Ctx: 315K / 1M` — but nothing compresses at 1M. The agent's
-compressor fires at **50%** (`compression.threshold`), a between-turn gateway safety net at
-**85%**, and a hard **400-message** valve forces compression regardless of tokens. So the
+**On Discord there is no footer at all by default.** Hermes ships a built-in runtime footer
+(`display.runtime_footer`, `model · context% · cwd`) but it is **off unless you enable it**, so a
+Discord reply normally carries nothing about how full the context is. This plugin is what puts a
+footer there — and, unlike the raw built-in figure, it is computed truthfully.
+
+When the built-in footer *is* enabled it reads `Ctx: 315K / 1M` — but nothing compresses at 1M.
+The agent's compressor fires at **50%** (`compression.threshold`), a between-turn gateway safety
+net at **85%**, and a hard **400-message** valve forces compression regardless of tokens. So the
 *effective* budget is ~524K, and `315K` is 60% of it, not 32%.
 
 This project measures pressure against the **effective** budget, using the **usage-anchored**
