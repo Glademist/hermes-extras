@@ -1,0 +1,8 @@
+name: tool-output-cap
+version: "0.1.0"
+description: Cap oversized tool results (head+tail) before they enter context, preserving success/error signals. Dry-run by default.
+author: Glademist
+hooks:
+  - transform_tool_result
+provides_hooks:
+  - transform_tool_result

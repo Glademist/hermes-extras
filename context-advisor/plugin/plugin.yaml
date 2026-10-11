@@ -1,0 +1,12 @@
+name: context-advisor
+version: "0.1.0"
+description: Truthful context-pressure footer — anchored usage + effective budget + message valve.
+author: Glademist
+hooks:
+  - post_api_request
+  - transform_llm_output
+  - on_session_end
+provides_hooks:
+  - post_api_request
+  - transform_llm_output
+  - on_session_end

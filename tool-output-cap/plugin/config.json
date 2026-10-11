@@ -1,0 +1,18 @@
+{
+  "mode": "on",
+  "threshold_chars": 24000,
+  "head_chars": 12000,
+  "tail_chars": 6000,
+  "log_path": "~/.hermes/logs/tool-output-cap.jsonl",
+  "target_tools": [
+    "read_file",
+    "web_extract",
+    "execute_code",
+    "terminal",
+    "browser_exec",
+    "search_files",
+    "mcp__qmd__get",
+    "mcp__qmd__multi_get",
+    "mcp__leviathan__get"
+  ]
+}

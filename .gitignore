@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS
+.DS_Store
+
+# Backups / secrets — never commit
+*.bak
+*.bak-*
+*.orig
+config*.yaml
+config*.json.bak
+.env
+.env.*
+secrets*
+*.pem
+*.key
+
+# Databases / state
+*.sqlite
+*.sqlite3
+*.db
+*.jsonl
+
+# Noemem data trees are governed by noemem/data/.gitignore (content is private)
